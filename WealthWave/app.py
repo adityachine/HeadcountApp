@@ -8,10 +8,15 @@ from datetime import datetime
 from utils.data_processor import DataProcessor
 from utils.visualizations import create_visualizations
 
-# Custom CSS for styling
+import os
+
 def load_css():
-    with open('styles/custom.css') as f:
-        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+    css_path = os.path.join(os.path.dirname(__file__), 'styles', 'custom.css')
+    try:
+        with open(css_path) as f:
+            st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+    except FileNotFoundError:
+        st.warning("custom.css not found. Proceeding without custom styles.")
 
 def main():
     # Page configuration
