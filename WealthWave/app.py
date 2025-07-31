@@ -7,6 +7,8 @@ import io
 from datetime import datetime
 from utils.data_processor import DataProcessor
 from utils.visualizations import create_visualizations
+import os
+
 
 def load_css():
     css_path = 'styles/custom.css'
