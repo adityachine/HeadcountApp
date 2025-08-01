@@ -7,16 +7,12 @@ import io
 from datetime import datetime
 from utils.data_processor import DataProcessor
 from utils.visualizations import create_visualizations
-import os
 
-
+# Custom CSS for styling
 def load_css():
-    css_path = 'styles/custom.css'
-    if os.path.exists(css_path):
-        with open(css_path) as f:
-            st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
-    else:
-        st.warning("Custom CSS file not found. Skipping style injection.")
+    with open('WealthWave/styles/custom.css') as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
 def main():
     # Page configuration
     st.set_page_config(
